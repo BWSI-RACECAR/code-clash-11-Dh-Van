@@ -39,21 +39,18 @@ class Solution:
     def find_longest_increasing_subsequence(self, arr):
             #type arr: list of int
             #return type: int
+            print(arr)
             #TODO: Write code below to return an int with the solution to the prompt.
-            l_list = []
-            l = 1
-            length = 1
-            for i in range(1, len(arr)):
-                last_e = arr[i - 1]
-                e = arr[i]
-                if(last_e < e): 
-                    l += 1
-                if(last_e >= e): 
-                    l = 1
-                l_list.append(l)
+            longest = 1
+            last = arr[0]
+            for i in arr:
+                if i > last:
+                    longest += 1
+                last = i
 
-            l_list.sort()
-            return l_list[-1]
+            return longest
+                
+                
 
 def main():
     array = input().split(" ")
